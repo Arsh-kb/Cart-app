@@ -208,7 +208,7 @@ body {
 @media screen and (max-width: 768px) {
   .cart-box {
     width: 80vw;
-    min-height:40vh;
+    min-height:30vh;
     padding: 1rem;
     gap: 0.8rem;
   }
@@ -220,7 +220,7 @@ body {
     max-width: unset;
   }
   #input-field{
-    width: 70%;
+    width: 70vw;
   }
   #add-button{
     width:60%;
@@ -245,7 +245,7 @@ body {
     height: 8rem;
   }
   #input-field{
-    width:100%;
+    width:70vw;
   }
   #shopping-list li {
   font-size: 1rem;
@@ -255,3 +255,4 @@ body {
 }
 
 }
+
