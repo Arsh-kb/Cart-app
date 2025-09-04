@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap");
+
+:root {
+  /* 🌈 Gradient Core */
+  --color-pink: #ff0f7b;
+  --color-orange: #f89b29;
+
+  /* 🔦 Shades (darker tones) */
+  --color-pink-dark: #b30055;
+  --color-orange-dark: #b3620e;
+
+  /* ✨ Tints (lighter tones) */
+  --color-pink-light: #ff66a3;
+  --color-orange-light: #ffc280;
+
+  /* ⚖️ Neutrals */
+  --color-dark: #1e1e1e;
+  --color-light: #f5f5f5;
+
+  /* 🎨 Gradient Preset */
+  --gradient-pink-orange: linear-gradient(
+    210deg,
+    var(--color-pink) 0%,
+    #ff5c57 50%,
+    /* mid blend shade */ var(--color-orange) 100%
+  );
+
+  --gradient-pink-orange-2: linear-gradient(
+    20deg,
+    var(--color-pink) 0%,
+    #ff5c57 50%,
+    var(--color-orange) 100%
+  );
+
+  /* Font family */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  margin: 1rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fd94a9, #ffe3eb);
+}
+
+#cart {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 40rem;
+}
+
+.cart-box {
+  border: 1px solid var(--color-pink-light);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  width: 40rem;
+  height: 25rem;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(135deg, #fff7f2, #ffe5d9); */
+  background: var(--gradient-pink-orange);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 0 0 12px rgba(248, 155, 41, 0.25);
+}
+
+#cart-image {
+  margin-top: -10px;
+  padding-top: 2px;
+  height: 23rem;
+  width: 15rem;
+  filter: drop-shadow(0px 6px 10px rgba(0, 0, 0, 0.3))
+    drop-shadow(0px 0px 2px var(--color-orange-light)); /* glowing touch */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.cart-box img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0px 8px 14px rgba(0, 0, 0, 0.4))
+    drop-shadow(0px 0px 16px var(--color-orange));
+}
+
+#input-field {
+  border: 1px solid var(--color-light);
+  box-shadow: 0 0px 5px var(--color-pink-light);
+  padding: 10px 20px 10px;
+  margin: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+#input-field:focus {
+  outline: none;
+  border: 1px solid var(--color-pink);
+  box-shadow: 0 0 8px var(--color-pink);
+}
+
+#add-button {
+  background: var(--color-orange-light);
+  color: var(--color-light);
+  border: 1px solid var(--color-orange-light);
+  padding: 10px 20px;
+  border-radius: 8px;
+  /* color: #fff; */
+  font-weight: bold;
+  font-size: 18px;
+  color: #2b2b2b;
+  height: 3rem;
+  width: 70%;
+  transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+#add-button:hover {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: #111;
+  box-shadow: 0 0px 5px var(--color-orange-dark);
+  cursor: pointer;
+}
+
+#input-field,
+#add-button {
+  max-width: 300px;
+  display: block; /* ensures vertical stacking */
+  margin: 1rem auto;
+}
+
+/* Base styles */
+#shopping-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center items */
+  gap: 1rem;
+  padding: 0;
+  width: 750px;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+#shopping-list li {
+  border-radius: 1rem;
+  height: 8rem;
+  flex-grow: 1;
+  min-width: 12rem;
+  max-width: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--gradient-pink-orange-2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: #f5f5f5;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 0.5rem;
+  word-wrap: break-word; /* wrap long text */
+}
+
+.edit,
+.delete {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.edit:hover {
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 16px var(--color-pink-dark));
+  transform: scale(1.2);
+}
+
+.delete:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 16px var(--color-pink-dark));
+}
+
+/* Tablets (≤ 1024px) */
+@media screen and (max-width: 1024px) {
+  .cart-box {
+    width: 60vw;
+    height: 50vh;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  #shopping-list {
+    width: 100%;
+  }
+  #shopping-list li {
+    font-size: 1.6rem;
+    min-width: 10rem;
+    max-width: 14rem;
+    height: 6rem;
+  }
+}
+
+/* Mobiles (≤ 768px) */
+@media screen and (max-width: 768px) {
+  .cart-box {
+    width: 80vw;
+    min-height:40vh;
+    padding: 1rem;
+    gap: 0.8rem;
+  }
+  #shopping-list li {
+    font-size: 1.4rem;
+    width: 90%; /* stacked layout */
+    height: 4rem;
+    min-width: unset;
+    max-width: unset;
+  }
+  #input-field{
+    width: 70%;
+  }
+  #add-button{
+    width:60%;
+    height: 2rem;
+    font-size: 14px;
+  }
+  #cart-image {
+    width: 14rem;
+    height: 14rem;
+  }
+}
+
+/* Small mobiles (≤ 480px) */
+@media screen and (max-width: 480px) {
+  .cart-box {
+    width: 95%;
+    padding: 0.8rem;
+    gap: 0.5rem;
+  }
+  #cart-image {
+    width: 8rem;
+    height: 8rem;
+  }
+  #input-field{
+    width:100%;
+  }
+  #shopping-list li {
+  font-size: 1rem;
+  width: 90%;
+  min-height: 3.5rem;
+  height: auto; /* grows if text wraps */
+}
+
+}
