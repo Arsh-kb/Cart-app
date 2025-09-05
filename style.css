@@ -188,10 +188,13 @@ body {
 /* Tablets (≤ 1024px) */
 @media screen and (max-width: 1024px) {
   .cart-box {
-    width: 60vw;
-    height: 50vh;
+    width: 90%;
+    height: 45%;
     gap: 1rem;
     margin-top: 1rem;
+  }
+  #input-field{
+    width: 75%;
   }
   #shopping-list {
     width: 100%;
@@ -256,6 +259,7 @@ body {
 }
 
 }
+
 
 
 
