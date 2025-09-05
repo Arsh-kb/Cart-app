@@ -119,10 +119,11 @@ body {
   color: #2b2b2b;
   height: 3rem;
   width: 70%;
-  transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 #add-button:hover {
+  transform: scale(1.05);
   background: var(--color-orange);
   border-color: var(--color-orange);
   color: #111;
@@ -142,7 +143,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* center items */
-  gap: 1rem;
+  gap: 0.3rem;
   padding: 0;
   width: 750px;
   list-style: none;
@@ -168,6 +169,11 @@ body {
   word-wrap: break-word; /* wrap long text */
 }
 
+#shopping-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
 .edit,
 .delete {
   transition: transform 0.3s ease, filter 0.3s ease;
@@ -176,25 +182,64 @@ body {
 .edit:hover {
   cursor: pointer;
   filter: drop-shadow(2px 2px 16px var(--color-pink-dark));
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 .delete:hover {
-  transform: scale(1.2);
+  transform: scale(1.3);
   cursor: pointer;
   filter: drop-shadow(0px 0px 16px var(--color-pink-dark));
 }
 
+/* 🌿 Completed item soft green gradient */
+#shopping-list li.completed {
+  background: linear-gradient(135deg, #d6fcc3, #359d35); /* soft green gradient */
+  color: #2b2b2b; /* soft dark text for contrast */
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(100, 200, 120, 0.2);
+  transition: all 0.3s ease;
+  position: relative; /* for optional ribbon */
+}
+
+/* 🌿 Optional "Completed" ribbon text */
+#shopping-list li.completed::after {
+  content: "Completed";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: #7ecb7e; /* soft green */
+  color: #f5f5f5;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 🌿 Hover effect for completed items */
+#shopping-list li.completed:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 14px rgba(100, 200, 120, 0.3);
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+
 /* Tablets (≤ 1024px) */
 @media screen and (max-width: 1024px) {
   .cart-box {
-    width: 100%;
-    height: 45%;
+    width: 90%;
+    height: 50vh;
     gap: 1rem;
     margin-top: 1rem;
   }
-  #input-field{
+  #input-field {
     width: 70%;
+  }
+  #add-button {
+    width: 50%;
+    font-size: 16px;
   }
   #shopping-list {
     width: 100%;
@@ -210,13 +255,10 @@ body {
 /* Mobiles (≤ 768px) */
 @media screen and (max-width: 768px) {
   .cart-box {
-    width: 95%;
-    min-height:30vh;
+    width: 90%;
+    min-height: 40vh;
     padding: 1rem;
     gap: 0.8rem;
-  }
-  #input-field{
-    width: 75%;
   }
   #shopping-list li {
     font-size: 1.4rem;
@@ -225,8 +267,11 @@ body {
     min-width: unset;
     max-width: unset;
   }
-  #add-button{
-    width:60%;
+  #input-field {
+    width: 70%;
+  }
+  #add-button {
+    width: 60%;
     height: 2rem;
     font-size: 14px;
   }
@@ -240,7 +285,6 @@ body {
 @media screen and (max-width: 480px) {
   .cart-box {
     width: 95%;
-    height:40%;
     padding: 0.8rem;
     gap: 0.5rem;
   }
@@ -248,19 +292,13 @@ body {
     width: 8rem;
     height: 8rem;
   }
-  #input-field{
-    width:80%;
+  #input-field {
+    width: 80%;
   }
   #shopping-list li {
-  font-size: 1rem;
-  width: 90%;
-  min-height: 3.5rem;
-  height: auto; /* grows if text wraps */
+    font-size: 1rem;
+    width: 90%;
+    min-height: 3.5rem;
+    height: auto; /* grows if text wraps */
+  }
 }
-
-}
-
-
-
-
-
